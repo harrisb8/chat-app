@@ -4,40 +4,55 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const image = require('../assets/images/bg.png');
 
+//what allows users to input their name
 export default class Start extends React.Component {
     constructor(props) {
         super(props);
         this.state = { name: ""}
     }
+
+
     render() {
         return (
+            //The container that holds everything
             <View style={ styles.container}>
                 <ImageBackground source={image} resizeMode="cover" style={styles.image}>
                      <Text style={ styles.text}>Welcome!</Text>
 
                      <View style={ styles.box}>
                        <TouchableOpacity>
-                        <TextInput
-                            stlye={ styles.input}
-                            onChangeText={(name) => this.setState({ name })}
-                            value={this.state.name}
-                            placeholder="Your Name Here ..."
-                        />
+                           <View style={styles.bar}>
+                                <TextInput
+                                    stlye={ styles.input}
+                                    onChangeText={(name) => this.setState({ name })}
+                                    value={this.state.name}
+                                    placeholder="Your Name Here ..."
+                                    />
+                            </View>
+                    
                         </TouchableOpacity>
+                     
+
+                       
                         <View style={ styles.colors}>
-                            <Text>Choose your background color below</Text>
-                            <View styles={styles.color1}></View>
-                            <View styles={ styles.color2}></View>
-                            <View styles={ styles.color3}></View>
-                            <View styles={ styles.color4}></View>
+                            <Text styles={styles.text}>Choose your background color below</Text>
+                                <View styles={styles.selection}>
+                                    <View styles={styles.color1}></View>
+                                    <View styles={styles.color2}></View>
+                                    <View styles={styles.color3}></View>
+                                    <View stles={styles.color4}></View>
+                                </View>
+                            
                         </View>
+
+
                             <Button styles={{fontSize: 16, fontWeight: 600, fontColor: "#FFFFFF", buttonColor: "#757083", alignContent: "center"}}
                                 title="Start Chatting"
                                 onPress={() => 
                                 this.props.navigation.navigate("Chat", { name: this.state.name })
                                 }
                             />
-                     </View>
+                        </View>
                 </ImageBackground>
             </View>
         )
@@ -60,47 +75,65 @@ const styles = StyleSheet.create({
         fontSize: 45,
         fontWeight: 600,
         fontColor: "#FFFFFF",
-        //padding: 100
+        padding: 5
+        
     },
     box: {
         backgroundColor: "white",
-        borderRadius: 5,
-        padding: 15,
-        justifyContent: 'space-evenly'
+        flexDirection: "column",
+        justifyContent: 'space-evenly',
+        alignItems: "center",
+        height: "44%",
+        width: "88%",
+       
 
+
+    },
+    bar: {
+        flexDirection: "row",
+        borderColor: "#757083",
+        borderWidth: 1,
+        padding: 10
 
     },
     input: {
-        height: 40,
-        borderColor: "gray",
-        borderWidth: 1,
-        margin: 5,
         fontSize: 16,
         fontWeight: 300,
-        fontColor: "#757083"
+        fontColor: "#757083",
+        opacity: 0.5
     },
     colors: {
-        flexDirection: 'row',
+        flexDirection: 'column',
         justifyContent: 'space-evenly',
-        padding: 10,
-        margin: 25   
+        padding: 5,           
+    },
+    selection: {
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        padding: 5
     },
     color1: {
         backgroundColor: "black",
         height: 50,
+        width: 50,
+        borderRadius: 25
         
     },
     color2: {
         width: 50,
         height: 50,
         borderRadius: 25,
-        backgroundColor: "#474056"
+        backgroundColor: "#474056",
+        flexDirection: "row"
+        
     },
     color3: {
         width: 50,
         height: 50,
         borderRadius: 25,
-        backgroundColor: "#8A95A5"
+        backgroundColor: "#8A95A5",
+        flexDirection: "row"
+        
     },
     color4: {
         width: 50,
