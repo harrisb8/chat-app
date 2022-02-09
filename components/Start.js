@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, TextInput, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, Button, TextInput, StyleSheet, ImageBackground, Pressable } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const image = require('../assets/images/bg.png');
@@ -8,8 +8,17 @@ const image = require('../assets/images/bg.png');
 export default class Start extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { name: ""}
+        this.state = { name: "", bgcolor: ""}
+
     }
+
+    //background color choices
+    colors = {
+        black: "#090C08",
+        independence: "#474056",
+        duskGray: "#8A95A5",
+        composedGreen: "#B9C6AE",
+    };
 
 
     render() {
@@ -17,30 +26,33 @@ export default class Start extends React.Component {
             //The container that holds everything
             <View style={ styles.container}>
                 <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-                     <Text style={ styles.text}>Welcome!</Text>
-
-                     <View style={ styles.box}>
-                       <TouchableOpacity>
+                    <View styles={styles.header}>
+                        <Text style={ styles.title}>Welcome!</Text>
+                    </View>
+                        <View style={ styles.box}>
+                       
                            <View style={styles.bar}>
                                 <TextInput
                                     stlye={ styles.input}
                                     onChangeText={(name) => this.setState({ name })}
                                     value={this.state.name}
                                     placeholder="Your Name Here ..."
-                                    />
+                                    >
+                                    </TextInput>
                             </View>
                     
-                        </TouchableOpacity>
+                    
                      
 
                        
                         <View style={ styles.colors}>
                             <Text styles={styles.text}>Choose your background color below</Text>
-                                <View styles={styles.selection}>
+                                <View styles={styles.colorSample}>
+                                    <View styles={styles.colorChoice}></View>
                                     <View styles={styles.color1}></View>
                                     <View styles={styles.color2}></View>
                                     <View styles={styles.color3}></View>
-                                    <View stles={styles.color4}></View>
+                                    <View styles={styles.color4}></View>
                                 </View>
                             
                         </View>
@@ -71,30 +83,32 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: 'center'
       },
-    text: {
-        fontSize: 45,
-        fontWeight: 600,
-        fontColor: "#FFFFFF",
-        padding: 5
+    header: {
+        height: "44%",
+        width: "88%"
         
+    },
+    title: {
+        fontSize: 45,
+        fontWeight: "bold",
+        color: 'white',
+        textAlign: "center",
+        padding: 20
     },
     box: {
         backgroundColor: "white",
         flexDirection: "column",
-        justifyContent: 'space-evenly',
+        justifyContent: 'center',
         alignItems: "center",
         height: "44%",
-        width: "88%",
-       
-
-
+        width: "88%"
     },
     bar: {
         flexDirection: "row",
         borderColor: "#757083",
         borderWidth: 1,
-        padding: 10
-
+        padding: 10,
+        width:"88%" 
     },
     input: {
         fontSize: 16,
@@ -104,42 +118,55 @@ const styles = StyleSheet.create({
     },
     colors: {
         flexDirection: 'column',
-        justifyContent: 'space-evenly',
-        padding: 5,           
+        padding: 20,     
+        width: "88%",
+        marginRight: "auto"      
     },
-    selection: {
+    colorSamples: {
         flexDirection: "row",
-        justifyContent: "space-evenly",
+        justifyContent: "space-betweeen",
         padding: 5
+    },
+    colorChoice: {
+        alignSelf: "center",
+        borderRadius: 40,
+        borderWidth: 2,
+        borderColor: 'white',
+    
     },
     color1: {
         backgroundColor: "black",
-        height: 50,
-        width: 50,
-        borderRadius: 25
+        height: 40,
+        width: 40,
+        borderRadius: 20,
+        flexDirection: "row",
+        margin: 2
         
     },
     color2: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
+        width: 40,
+        height: 40,
+        borderRadius: 20,
         backgroundColor: "#474056",
-        flexDirection: "row"
+        flexDirection: "row",
+        margin: 2
         
     },
     color3: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
+        width: 40,
+        height: 40,
+        borderRadius: 20,
         backgroundColor: "#8A95A5",
-        flexDirection: "row"
+        flexDirection: "row",
+        margin: 2
         
     },
     color4: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-        backgroundColor: "#B9C6AE"
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        backgroundColor: "#B9C6AE",
+        margin: 2
     }
 });
 
