@@ -28,7 +28,7 @@ export default class Chat extends React.Component {
                 },
                 {
                     _id: 2,
-                    text: 'This is a system message',
+                    text: 'Welcome to the Chat',
                     createdAt: new Date(),
                     system: true,
                    },
@@ -39,8 +39,24 @@ export default class Chat extends React.Component {
           onSend(messages = []) {
             this.setState(previousState => ({
               messages: GiftedChat.append(previousState.messages, messages),
-            }))
+            }));
           }
+
+          //changes the color of text button
+          /*renderBubble(props) {
+            return (
+              <Bubble
+                {...props}
+                wrapperStyle={{
+                  right: {
+                    backgroundColor: '#000'
+                  }
+                }}
+              />
+            );
+          }*/
+          
+
         //changes the title to name inputed by user
     render() {
         let name = this.props.route.params.name;
@@ -49,6 +65,7 @@ export default class Chat extends React.Component {
         return (
             <View style={{flex:1, justifyContent:'center', alignItems: "center"}}>
               <GiftedChat
+                 //renderBubble={this.renderBubble.bind(this)}
                  messages={this.state.messages}
                  onSend={messages => this.onSend(messages)}
                  user={{
