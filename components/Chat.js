@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, Button, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button, ImageBackground, Platform, KeyboardAvoidingView } from 'react-native';
 
 import { GiftedChat } from 'react-native-gifted-chat'
 
@@ -72,6 +72,7 @@ export default class Chat extends React.Component {
                  _id: 1,
                  }}
               />
+              { Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null}
                <Button
                     title="Go to Start"
                     onPress={() => this.props.navigation.navigate("Start")}
