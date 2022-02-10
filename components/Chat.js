@@ -59,9 +59,11 @@ export default class Chat extends React.Component {
 
         //changes the title to name inputed by user
     render() {
-        let name = this.props.route.params.name;
+        const {name, bgImage} = this.props.route.params;
         this.props.navigation.setOptions({ title: name });
           //applies message that the user adds
+
+      
         return (
             <View style={{flex:1, justifyContent:'center', alignItems: "center"}}>
               <GiftedChat
