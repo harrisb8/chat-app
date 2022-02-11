@@ -2,15 +2,24 @@ import React from 'react';
 import { View, Text, Button, TextInput, StyleSheet, ImageBackground, Pressable } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
+import bg1 from "../assets/bg1.png";
+import bg2 from "../assets/bg2.png";
+import bg3 from "../assets/bg3.png";
+import bg4 from "../assets/bg4.png";
+
 const image = require('../assets/images/bg.png');
 
 //what allows users to input their name
 export default class Start extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { name: "", bgcolor: ""}
+        this.state = { name: "", bgcolor: "newColor", bgImage: image}
 
     }
+
+    changebgImage = (newColor) => {
+        this.setState({ bgImage: newColor });
+    };
 
     //background color choices
     colors = {
@@ -46,13 +55,35 @@ export default class Start extends React.Component {
 
                        
                         <View style={ styles.colors}>
-                            <Text styles={styles.text}>Choose your background color below</Text>
-                                <View styles={styles.colorSample}>
-                                    <View styles={styles.colorChoice}></View>
-                                    <View styles={styles.color1}></View>
-                                    <View styles={styles.color2}></View>
-                                    <View styles={styles.color3}></View>
-                                    <View styles={styles.color4}></View>
+                            <Text style={styles.text}>Choose your background color below</Text>
+                                <View style={styles.myColors}>
+                                    <TouchableOpacity
+                                    onPress={()=>this.changebgImage(
+                                       this.colors.black
+                                    )}>
+                                     <View style={styles.color1}></View>
+                                    </TouchableOpacity>
+                                   
+                                    <TouchableOpacity
+                                     onPress={()=>this.changebgImage(
+                                         this.colors. independence
+                                     )}>
+                                     <View style={styles.color2}></View>
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity
+                                     onPress={()=>this.changebgImage(
+                                         this.colors.duskGray
+                                     )}>
+                                    <View style={styles.color3}></View>
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity
+                                    onPress={()=>this.changebgImage(
+                                        this.colors.composedGreen
+                                    )}>
+                                    <View style={styles.color4}></View>
+                                    </TouchableOpacity>
                                 </View>
                             
                         </View>
@@ -61,7 +92,7 @@ export default class Start extends React.Component {
                             <Button styles={{fontSize: 16, fontWeight: 600, fontColor: "#FFFFFF", buttonColor: "#757083", alignContent: "center"}}
                                 title="Start Chatting"
                                 onPress={() => 
-                                this.props.navigation.navigate("Chat", { name: this.state.name })
+                                this.props.navigation.navigate("Chat", { name: this.state.name, bgImage: this.state.bgImage })
                                 }
                             />
                         </View>
@@ -134,39 +165,40 @@ const styles = StyleSheet.create({
         borderColor: 'white',
     
     },
+
+    myColors: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "space-between"
+    },
+
     color1: {
-        backgroundColor: "black",
+        backgroundColor: "#090C08",
         height: 40,
         width: 40,
-        borderRadius: 20,
-        flexDirection: "row",
-        margin: 2
+        borderRadius: 40
         
     },
     color2: {
         width: 40,
         height: 40,
-        borderRadius: 20,
+        borderRadius: 40,
         backgroundColor: "#474056",
-        flexDirection: "row",
-        margin: 2
         
     },
     color3: {
         width: 40,
         height: 40,
-        borderRadius: 20,
+        borderRadius: 40,
         backgroundColor: "#8A95A5",
-        flexDirection: "row",
-        margin: 2
+
         
     },
     color4: {
         width: 40,
         height: 40,
-        borderRadius: 20,
+        borderRadius: 40,
         backgroundColor: "#B9C6AE",
-        margin: 2
     }
 });
 
