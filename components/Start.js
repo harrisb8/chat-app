@@ -89,7 +89,7 @@ export default class Start extends React.Component {
                         </View>
 
 
-                            <Button styles={{fontSize: 16, fontWeight: 600, fontColor: "#FFFFFF", buttonColor: "#757083", alignContent: "center"}}
+                            <Button styles={{fontSize: 16, fontWeight: "600", fontColor: "#FFFFFF", buttonColor: "#757083", alignContent: "center"}}
                                 title="Start Chatting"
                                 onPress={() => 
                                 this.props.navigation.navigate("Chat", { name: this.state.name, bgImage: this.state.bgImage })
@@ -143,8 +143,7 @@ const styles = StyleSheet.create({
     },
     input: {
         fontSize: 16,
-        fontWeight: 300,
-        fontColor: "#757083",
+        fontWeight: "300",
         opacity: 0.5
     },
     colors: {
@@ -155,7 +154,7 @@ const styles = StyleSheet.create({
     },
     colorSamples: {
         flexDirection: "row",
-        justifyContent: "space-betweeen",
+        justifyContent: "space-between",
         padding: 5
     },
     colorChoice: {
