@@ -3,10 +3,8 @@ import { StyleSheet, View, Text, TextInput, Button, ImageBackground, Platform, K
 
 import { GiftedChat } from 'react-native-gifted-chat'
 //enable firebase which stores information
-//const firebase = require('firebase');
-//require('firebase/firestore');
-import firebase from 'firebase';
-import 'firebase/firestore';
+const firebase = require('firebase');
+require('firebase/firestore');
 //added firebase auth
 
 //state of the message that will change
