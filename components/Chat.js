@@ -4,6 +4,8 @@ import { Bubble, GiftedChat } from 'react-native-gifted-chat';
 
 import firebase from 'firebase';
 import 'firebase/firestore';
+import AsyncStorage from '@react-native-community/async-storage';
+import NetInfo from '@react-native-community/netinfo';
 
 
 // Firebase configuration
@@ -48,6 +50,15 @@ export default class Chat extends React.Component {
     let name = this.props.route.params.name;
     // Adds the name to top of screen
     this.props.navigation.setOptions({ title: name })
+
+    //Check and see if the user is online or offline
+    NetInfo.fetch().then(connection => {
+      if (connection.isConnected) {
+        console.log('online');
+      } else {
+        console.log('offline');
+      }
+    });
 
     // Listens for updates in the collection
     this.unsubscribe = this.referenceChatMessages
@@ -186,7 +197,7 @@ export default class Chat extends React.Component {
 				this.addMessage();
 			}
 		);
-	}
+  }
 
   // Customize the chat bubble background color
   renderBubble(props) { 
@@ -199,7 +210,17 @@ export default class Chat extends React.Component {
     );
   }
 
-  
+  //takes away chat box if offline
+  renderInputToolbar(props) {
+    if (this.state.isConnected == false) {
+    } else {
+      return(
+        <InputToolbar
+        {...props}
+        />
+      );
+    }
+  }  
 
   render() {
     // Set the background color selected from start screen
