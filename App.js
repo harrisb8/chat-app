@@ -10,6 +10,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { render } from 'react-dom';
 import React from 'react';
+import CustomActions from './CustomActions';
+
 
 const Stack = createStackNavigator();
 
