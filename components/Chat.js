@@ -10,14 +10,20 @@ import MapView from 'react-native-maps';
 
 // Firebase configuration
 const firebaseConfig ={
-  apiKey: "AIzaSyDoBQsWPARS-vpFgbOXVJ-ChvGcL5duWd8",
-  authDomain: "chat-app-326ae.firebaseapp.com",
-  projectId: "chat-app-326ae",
-  storageBucket: "chat-app-326ae.appspot.com",
-  messagingSenderId: "74194142247",
-  appId: "1:74194142247:web:2422a6fdee7fc1e1217a02",
-  measurementId: "G-J41NHEHSQV"
-
+  //apiKey: "AIzaSyDoBQsWPARS-vpFgbOXVJ-ChvGcL5duWd8",
+  //authDomain: "chat-app-326ae.firebaseapp.com",
+  //projectId: "chat-app-326ae",
+  //storageBucket: "chat-app-326ae.appspot.com",
+  //messagingSenderId: "74194142247",
+  //appId: "1:74194142247:web:2422a6fdee7fc1e1217a02",
+  //measurementId: "G-J41NHEHSQV"
+  apiKey: "AIzaSyANwAoSMe0wO5EQT4SVGF_FWYCjxCagi2c",
+  authDomain: "chatapp-71859.firebaseapp.com",
+  projectId: "chatapp-71859",
+  storageBucket: "chatapp-71859.appspot.com",
+  messagingSenderId: "198882375883",
+  appId: "1:198882375883:web:6cebfe4acc7ffb1219c34e",
+  measurementId: "G-G1VQH8GCFL"
 };
 
 export default class Chat extends React.Component {

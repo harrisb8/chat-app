@@ -6,6 +6,7 @@
  import * as Permissions from 'expo-permissions';
  import * as ImagePicker from 'expo-image-picker';
 
+ class CustomActions extends React.Component {
  //allows user to pick an image 
  pickImage = async () => {
     const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
@@ -85,16 +86,17 @@
 
 
 //style action button
-render() {
-    return (
-      <TouchableOpacity style={[styles.container]} onPress={this.onActionPress}>
-        <View style={[styles.wrapper, this.props.wrapperStyle]}>
-          <Text style={[styles.iconText, this.props.iconTextStyle]}>+</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  }
+    render() {
+        return (
+        <TouchableOpacity style={[styles.container]} onPress={this.onActionPress}>
+            <View style={[styles.wrapper, this.props.wrapperStyle]}>
+            <Text style={[styles.iconText, this.props.iconTextStyle]}>+</Text>
+            </View>
+        </TouchableOpacity>
+        );
+    }
 
+}
 
   CustomActions.contextTypes = {
     actionSheet: PropTypes.func,
