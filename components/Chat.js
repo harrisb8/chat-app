@@ -5,6 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import NetInfo from '@react-native-community/netinfo';
 import firebase from 'firebase';
 import 'firebase/firestore';
+import { getAnalytics } from "firebase/analytics";
 import MapView from 'react-native-maps';
 
 
@@ -25,6 +26,10 @@ const firebaseConfig ={
   appId: "1:198882375883:web:6cebfe4acc7ffb1219c34e",
   measurementId: "G-G1VQH8GCFL"
 };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 export default class Chat extends React.Component {
 
