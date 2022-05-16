@@ -18,13 +18,12 @@ const firebaseConfig ={
   //messagingSenderId: "74194142247",
   //appId: "1:74194142247:web:2422a6fdee7fc1e1217a02",
   //measurementId: "G-J41NHEHSQV"
-  apiKey: "AIzaSyANwAoSMe0wO5EQT4SVGF_FWYCjxCagi2c",
-  authDomain: "chatapp-71859.firebaseapp.com",
-  projectId: "chatapp-71859",
-  storageBucket: "chatapp-71859.appspot.com",
-  messagingSenderId: "198882375883",
-  appId: "1:198882375883:web:6cebfe4acc7ffb1219c34e",
-  measurementId: "G-G1VQH8GCFL"
+  apiKey: "AIzaSyCEDDwFdYM7Hq9yXBJo3GXhQul0LOG6rhg",
+  authDomain: "chat-app-6a05d.firebaseapp.com",
+  projectId: "chat-app-6a05d",
+  storageBucket: "chat-app-6a05d.appspot.com",
+  messagingSenderId: "887682005525",
+  appId: "1:887682005525:web:b4e92697f69b048187ec1c"
 };
 
 // Initialize Firebase
